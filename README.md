@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/vnsdma/portfolio/actions"><img src="https://img.shields.io/badge/Build-Passing-22c55e?style=for-the-badge&logo=vite&logoColor=white" alt="Build Status" /></a>
+  <a href="https://portfolio-j9v.pages.dev/"><img src="https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-f38020?style=for-the-badge&logo=cloudflarepages&logoColor=white" alt="Cloudflare Pages" /></a>
   <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=black" alt="React 19" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-Strict%20Mode-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind%20CSS-3.4-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" /></a>
@@ -22,11 +22,12 @@ This repository houses the source code for my personal engineering portfolio. It
 Unlike generic developer portfolios filled with tutorial clones, this platform emphasizes **real-world business systems** that handle actual customer transactions, inventory sync, and live payment settlements.
 
 ### Quick Reference
+- **Live Portfolio**: [portfolio-j9v.pages.dev](https://portfolio-j9v.pages.dev/)
 - **Developer**: Naufal Faris Fadhil ([@vnsdma](https://github.com/vnsdma))
 - **Email**: `naufalfaris1903@gmail.com`
 - **Location**: Indonesia
 - **Live Flagship Store**: [prawiratobacco.com](https://prawiratobacco.com/)
-- **CV / Resume**: Available directly in the app or under [`public/Naufal_Faris_Fadhil_CV.pdf`](public/Naufal_Faris_Fadhil_CV.pdf)
+- **CV / Resume**: Available directly in the app or under [`public/Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf`](public/Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf)
 
 ---
 
@@ -180,22 +181,29 @@ Visit `http://localhost:3000` in your browser.
 | `npm run dev` | Starts the Vite local development server on port 3000 |
 | `npm run build` | Runs TypeScript typechecks (`tsc`) and bundles for production (`vite build`) |
 | `npm run preview` | Spins up a local static server to preview the production build |
+| `npm run deploy` | Deploys `dist/` directly to Cloudflare Pages |
+| `npm run deploy:prod` | Runs production build and deploys to Cloudflare Pages `main` branch |
 
 ---
 
 ## 🚢 Deployment
 
-The build output is standard static HTML, CSS, and JavaScript optimized for distribution on any modern CDN or serverless platform:
+The portfolio is deployed live on **Cloudflare Pages**: **[portfolio-j9v.pages.dev](https://portfolio-j9v.pages.dev/)**.
 
+### Continuous Deployment via GitHub (Cloudflare Dashboard)
+1. In Cloudflare Dashboard, go to **Workers & Pages** &rarr; **Create application** &rarr; **Pages** &rarr; **Connect to Git**.
+2. Select repository `vnsdma/portfolio`.
+3. Build Settings:
+   - **Framework preset**: `Vite`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+4. Click **Save and Deploy**. Cloudflare builds and deploys automatically on every push to `main`.
+
+### Direct Deployment via Wrangler CLI
 ```bash
-# Build the production bundle
-npm run build
+# Build and deploy directly to Cloudflare Pages
+npm run deploy:prod
 ```
-
-The resulting `dist/` folder is ready to deploy directly to:
-- **Vercel**: Connect the repository, build command `npm run build`, output directory `dist`.
-- **Netlify**: Build command `npm run build`, publish directory `dist`.
-- **Cloudflare Pages**: Framework preset `Vite`, build command `npm run build`, output directory `dist`.
 
 ---
 
