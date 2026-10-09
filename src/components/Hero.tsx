@@ -51,8 +51,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterBrief }) => (
           <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
         </a>
         <a
-          href="/Naufal_Faris_Fadhil_CV.pdf"
-          download="Naufal_Faris_Fadhil_CV.pdf"
+          href="/Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf"
+          download="Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf"
           target="_blank"
           rel="noreferrer"
           className="btn btn-outline"

@@ -46,27 +46,32 @@ export const RecruiterBriefModal: React.FC<RecruiterBriefModalProps> = ({ isOpen
   return (
     <Modal onClose={onClose} labelledBy="brief-modal-title" widthClass="max-w-3xl">
       {/* Header */}
-      <div className="flex items-start justify-between gap-4 border-b border-line bg-inset p-6">
-        <div>
-          <div className="mb-3 flex flex-wrap items-center gap-3">
+      <div className="flex shrink-0 items-start justify-between gap-3 border-b border-line bg-inset p-4 sm:p-6">
+        <div className="min-w-0 flex-1">
+          <div className="mb-2 flex flex-wrap items-center gap-2 sm:mb-3 sm:gap-3">
             <span className="badge">Recruiter brief</span>
             <span className="t-small text-mute">Candidate summary</span>
           </div>
-          <h2 id="brief-modal-title" className="t-h1 !text-2xl sm:!text-3xl">
+          <h2 id="brief-modal-title" className="t-h1 !text-xl leading-snug sm:!text-3xl">
             Fullstack software engineer
           </h2>
-          <p className="t-body mt-2 max-w-xl text-dim">
+          <p className="t-body mt-1 max-w-xl text-xs text-dim sm:mt-2 sm:text-sm">
             Commercial systems built, the architectural decisions behind them, and the production skills
             they show.
           </p>
         </div>
-        <button type="button" onClick={onClose} aria-label="Close recruiter brief" className="btn btn-subtle btn-sm shrink-0 !p-2">
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close recruiter brief"
+          className="btn btn-subtle btn-sm shrink-0 !p-2"
+        >
           <X className="h-4 w-4" aria-hidden="true" />
         </button>
       </div>
 
       {/* Content */}
-      <div className="flex-1 space-y-8 overflow-y-auto p-6">
+      <div className="flex-1 space-y-6 overflow-y-auto p-4 sm:space-y-8 sm:p-6 overscroll-contain">
         <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {QUICK_FACTS.map((f) => (
             <div key={f.value} className="inset p-3.5 text-center">
@@ -121,26 +126,26 @@ export const RecruiterBriefModal: React.FC<RecruiterBriefModalProps> = ({ isOpen
       </div>
 
       {/* Footer */}
-      <div className="flex flex-col items-stretch justify-between gap-3 border-t border-line bg-inset px-6 py-4 sm:flex-row sm:items-center">
+      <div className="flex shrink-0 flex-col items-stretch justify-between gap-2.5 border-t border-line bg-inset p-3 sm:flex-row sm:items-center sm:gap-3 sm:px-6 sm:py-4">
         <div className="flex flex-wrap items-center gap-2">
           <a
-            href="/Naufal_Faris_Fadhil_CV.pdf"
-            download="Naufal_Faris_Fadhil_CV.pdf"
+            href="/Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf"
+            download="Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf"
             target="_blank"
             rel="noreferrer"
-            className="btn btn-outline btn-sm"
+            className="btn btn-outline btn-sm !text-xs sm:!text-sm"
           >
             <Download className="h-3.5 w-3.5" aria-hidden="true" />
             Download CV
           </a>
-          <button type="button" onClick={copyBrief} className="btn btn-subtle btn-sm">
+          <button type="button" onClick={copyBrief} className="btn btn-subtle btn-sm !text-xs sm:!text-sm">
             {copied ? <Check className="h-3.5 w-3.5 text-ok" aria-hidden="true" /> : <Copy className="h-3.5 w-3.5" aria-hidden="true" />}
             {copied ? 'Copied' : 'Copy brief'}
           </button>
         </div>
         <a
           href="mailto:naufalfaris1903@gmail.com?subject=Fullstack%20Engineering%20Opportunity%20-%20Naufal%20Faris%20Fadhil"
-          className="btn btn-primary btn-sm"
+          className="btn btn-primary btn-sm !text-xs sm:!text-sm"
         >
           <Mail className="h-3.5 w-3.5" aria-hidden="true" />
           Contact by email

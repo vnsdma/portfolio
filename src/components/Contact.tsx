@@ -75,8 +75,8 @@ export const Contact: React.FC<ContactProps> = ({ onOpenRecruiterBrief }) => {
           <li className="flex items-center gap-2">
             <span className="dot text-accent" aria-hidden="true" />
             <a
-              href="/Naufal_Faris_Fadhil_CV.pdf"
-              download="Naufal_Faris_Fadhil_CV.pdf"
+              href="/Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf"
+              download="Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf"
               target="_blank"
               rel="noreferrer"
               className="link"

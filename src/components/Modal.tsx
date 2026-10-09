@@ -68,7 +68,7 @@ export const Modal: React.FC<ModalProps> = ({
 
   return createPortal(
     <div
-      className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6"
+      className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -79,7 +79,7 @@ export const Modal: React.FC<ModalProps> = ({
         aria-modal="true"
         aria-labelledby={labelledBy}
         tabIndex={-1}
-        className={`modal-panel relative flex max-h-[92vh] w-full flex-col overflow-hidden outline-none ${widthClass}`}
+        className={`modal-panel relative flex max-h-[94vh] max-h-[94dvh] w-full flex-col overflow-hidden outline-none ${widthClass}`}
       >
         {children}
       </div>

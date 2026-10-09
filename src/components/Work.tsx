@@ -101,24 +101,77 @@ const ProjectCard: React.FC<{ project: Project; onOpen: () => void }> = ({ proje
   );
 };
 
-export const Work: React.FC<WorkProps> = ({ onSelectProject }) => (
-  <section
-    id="work"
-    aria-labelledby="work-title"
-    className="scroll-mt-20 border-y border-line bg-band py-20 sm:py-24"
-  >
-    <div className="wrap flex flex-col gap-14">
-      <SectionHeader
-        eyebrow="Case studies and architecture"
-        title="Selected production work"
-        titleId="work-title"
-        aside="Fullstack web platforms, mobile-first commerce clients, multi-gateway payment state machines, and continuous camera-driven POS."
-      />
-      <div className="flex flex-col gap-10">
-        {projectsData.map((project) => (
-          <ProjectCard key={project.id} project={project} onOpen={() => onSelectProject(project)} />
-        ))}
+const FILTERS = [
+  { id: 'all', label: 'All case studies' },
+  { id: 'prawira-tobacco-web', label: 'Web Platform' },
+  { id: 'prawira-tobacco-mobile', label: 'Mobile Client' },
+  { id: 'prawira-inventory-pos', label: 'POS & Inventory' },
+  { id: 'prawira-api-architecture', label: 'API & Systems' },
+] as const;
+
+export const Work: React.FC<WorkProps> = ({ onSelectProject }) => {
+  const [activeFilter, setActiveFilter] = React.useState<string>('all');
+
+  const filteredProjects = projectsData.filter((p) => {
+    if (activeFilter === 'all') return true;
+    return p.id === activeFilter;
+  });
+
+  return (
+    <section
+      id="work"
+      aria-labelledby="work-title"
+      className="scroll-mt-20 border-y border-line bg-band py-20 sm:py-24"
+    >
+      <div className="wrap flex flex-col gap-8 sm:gap-14">
+        <SectionHeader
+          eyebrow="Case studies and architecture"
+          title="Selected production work"
+          titleId="work-title"
+          aside="Fullstack web platforms, mobile-first commerce clients, multi-gateway payment state machines, and continuous camera-driven POS."
+        />
+
+        {/* Category filter tabs */}
+        <div
+          role="tablist"
+          aria-label="Filter case studies"
+          className="no-scrollbar -mx-4 flex items-center gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0"
+        >
+          {FILTERS.map((f) => {
+            const count = f.id === 'all' ? projectsData.length : 1;
+            const isSelected = activeFilter === f.id;
+            return (
+              <button
+                key={f.id}
+                type="button"
+                role="tab"
+                aria-selected={isSelected}
+                onClick={() => setActiveFilter(f.id)}
+                className={`chip shrink-0 cursor-pointer font-medium transition-colors ${
+                  isSelected
+                    ? 'border-[rgb(var(--c-accent))] bg-[rgb(var(--c-accent))] font-semibold text-[rgb(var(--c-on-accent))]'
+                    : 'text-dim hover:border-[rgb(var(--c-hover-border))] hover:text-strong'
+                }`}
+              >
+                {f.label}
+                <span
+                  className={`ml-1.5 font-mono text-[11px] ${
+                    isSelected ? 'text-[rgb(var(--c-on-accent))]/80' : 'text-mute'
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="flex flex-col gap-10">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} onOpen={() => onSelectProject(project)} />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
