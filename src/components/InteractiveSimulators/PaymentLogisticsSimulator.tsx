@@ -25,7 +25,7 @@ const choice = (active: boolean) =>
 
 export const PaymentLogisticsSimulator: React.FC = () => {
   const [selectedDest, setSelectedDest] = useState(DESTINATIONS[0]);
-  const [selectedGateway, setSelectedGateway] = useState<'midtrans' | 'cashify'>('midtrans');
+  const [selectedGateway, setSelectedGateway] = useState<'midtrans' | 'radarpay'>('midtrans');
   const [promoCode, setPromoCode] = useState('');
   const [promoApplied, setPromoApplied] = useState(false);
   const [promoError, setPromoError] = useState('');
@@ -144,12 +144,12 @@ export const PaymentLogisticsSimulator: React.FC = () => {
                 </button>
                 <button
                   type="button"
-                  aria-pressed={selectedGateway === 'cashify'}
-                  onClick={() => setSelectedGateway('cashify')}
-                  className={`${choice(selectedGateway === 'cashify')} t-small flex items-center justify-center gap-1.5 p-2 font-semibold`}
+                  aria-pressed={selectedGateway === 'radarpay'}
+                  onClick={() => setSelectedGateway('radarpay')}
+                  className={`${choice(selectedGateway === 'radarpay')} t-small flex items-center justify-center gap-1.5 p-2 font-semibold`}
                 >
                   <QrCode className="h-3.5 w-3.5" aria-hidden="true" />
-                  Cashify QRIS
+                  RadarPay QRIS
                 </button>
               </div>
             </fieldset>

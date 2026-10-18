@@ -39,7 +39,7 @@ Unlike generic developer portfolios filled with tutorial clones, this platform e
 ├─────────────────────────┬────────────────────────────┬───────────────────────────┤
 │    COMMERCE SYSTEMS     │    PERFORMANCE & UX        │     SECURITY & BACKEND    │
 │  • Midtrans Snap VA/CC  │  • 0.00 CLS skeleton loads │  • SHA-512 Webhooks       │
-│  • Cashify QRIS Engine  │  • <0.9s Mobile LCP        │  • Server runtime keys    │
+│  • RadarPay QRIS Engine │  • <0.9s Mobile LCP        │  • Server runtime keys    │
 │  • RajaOngkir Pro API   │  • <300ms QR scan cycle    │  • Atomic order mutations │
 │  • Sub-district routing │  • 98+ Lighthouse scores   │  • Supabase SSR & RLS     │
 └─────────────────────────┴────────────────────────────┴───────────────────────────┘
@@ -59,7 +59,7 @@ The portfolio includes two live, in-browser interactive simulators demonstrating
 ### 1. 💳 Multi-Gateway Payment & Indonesian Logistics Simulator
 *Location: [`src/components/InteractiveSimulators/PaymentLogisticsSimulator.tsx`](src/components/InteractiveSimulators/PaymentLogisticsSimulator.tsx)*
 - **Cascading Logistics**: Dynamically simulates multi-tier administrative routing (Province → City/Regency → Sub-District) with weight-indexed tariff calculation via RajaOngkir Pro.
-- **Cryptographic Webhook Handlers**: Simulates payment payload verification (Midtrans Snap & Cashify QRIS) comparing SHA-512 signatures (`hash(order_id + status_code + gross_amount + server_key)`).
+- **Cryptographic Webhook Handlers**: Simulates payment payload verification (Midtrans Snap & RadarPay QRIS) comparing SHA-512 signatures (`hash(order_id + status_code + gross_amount + server_key)`).
 
 ### 2. 🛒 High-Throughput Continuous QR POS Cashier Simulator
 *Location: [`src/components/InteractiveSimulators/PosScannerSimulator.tsx`](src/components/InteractiveSimulators/PosScannerSimulator.tsx)*
@@ -147,7 +147,7 @@ portfolio/
 
 ### 2. [Prawira Tobacco E-Commerce Platform (Web)](https://github.com/vnsdma/web-prawira-tobacco)
 - **Live URL**: [prawiratobacco.com](https://prawiratobacco.com/)
-- **Stack**: Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Supabase PostgreSQL, Midtrans Snap, Cashify QRIS, RajaOngkir Pro API.
+- **Stack**: Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Supabase PostgreSQL, Midtrans Snap, RadarPay QRIS, RajaOngkir Pro API.
 - **Highlights**: Dual-gateway checkout with virtual accounts & QRIS, sub-district tariff calculation, and 100% SHA-512 webhook signature verification.
 
 ### 3. [Prawira Tobacco Mobile E-Commerce](https://github.com/vnsdma/prawira-tobacco)

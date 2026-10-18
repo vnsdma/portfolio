@@ -7,7 +7,7 @@ const PILLARS = [
     tag: 'Security and integrity',
     title: 'Cryptographic webhook handlers',
     description:
-      'Instead of trusting client-side payment confirmations, every transaction settles through server-side SHA-512 verification. Order state transitions are idempotent and protected against replay across Midtrans and Cashify QRIS.',
+      'Instead of trusting client-side payment confirmations, every transaction settles through server-side SHA-512 verification. Order state transitions are idempotent and protected against replay across Midtrans and RadarPay QRIS.',
     specs: [
       'SHA-512 signature hashing with server-isolated secrets',
       'State-machine mapping: settlement, pending, expire, cancel',

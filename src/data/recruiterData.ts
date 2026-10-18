@@ -3,7 +3,7 @@ import { RecruiterPillar, SkillCategory } from '../types';
 export const recruiterPillars: RecruiterPillar[] = [
   {
     title: 'Solves Real Commercial Problems, Not Generic Tutorials',
-    pitch: 'I do not build shallow demo clones or basic tutorial apps. My code processes real customer transactions via Midtrans Snap and Cashify QRIS, calculates multi-tier Indonesian logistics down to the sub-district level using RajaOngkir Pro, powers high-throughput continuous camera QR cashier checkouts, and runs autonomous dynamic QRIS gateways with Android notification interception.',
+    pitch: 'I do not build shallow demo clones or basic tutorial apps. My code processes real customer transactions via Midtrans Snap and RadarPay QRIS, calculates multi-tier Indonesian logistics down to the sub-district level using RajaOngkir Pro, powers high-throughput continuous camera QR cashier checkouts, and runs autonomous dynamic QRIS gateways with Android notification interception.',
     differentiator: 'Production-ready domain problem solving and commercial code craftsmanship.',
     evidence: 'RadarPay Dynamic QRIS Gateway, Prawira Tobacco E-Commerce (web-prawira-tobacco & prawira-tobacco) & Prawira Inventory POS Suite.'
   },
@@ -66,7 +66,7 @@ export const skillCategories: SkillCategory[] = [
       'Dynamic EMVCo QRIS & CRC-16',
       'Android NotificationListenerService',
       'SQLite Outbox Pattern Relay',
-      'Midtrans Snap & Cashify QRIS',
+      'Midtrans Snap & RadarPay QRIS',
       'grammY Telegram Bot Automation',
       'RajaOngkir Pro Shipping API',
       'html5-qrcode Scanner Integration',

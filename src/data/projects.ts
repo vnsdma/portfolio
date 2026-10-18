@@ -4,18 +4,18 @@ export const projectsData: Project[] = [
   {
     id: 'prawira-tobacco-web',
     title: 'Prawira Tobacco E-Commerce Platform',
-    tagline: 'Production Next.js 15 platform with Midtrans & Cashify QRIS multi-gateway, RajaOngkir Pro logistics, and Supabase.',
+    tagline: 'Production Next.js 15 platform with Midtrans & RadarPay QRIS multi-gateway, RajaOngkir Pro logistics, and Supabase.',
     category: 'Fullstack Web Platform',
     role: 'Fullstack Engineer',
     timeframe: '2025 - Present',
     status: 'Live in Production',
     githubUrl: 'https://github.com/vnsdma/web-prawira-tobacco',
     liveUrl: 'https://prawiratobacco.com/',
-    summary: 'A robust, high-performance web e-commerce platform built for Prawira Tobacco. Features multi-gateway checkout (Midtrans Snap & Cashify QRIS), real-time domestic shipping cost calculation via RajaOngkir Pro down to the sub-district level, Supabase PostgreSQL with JWT authentication, and zero-shift skeleton layout architecture.',
+    summary: 'A robust, high-performance web e-commerce platform built for Prawira Tobacco. Features multi-gateway checkout (Midtrans Snap & RadarPay QRIS), real-time domestic shipping cost calculation via RajaOngkir Pro down to the sub-district level, Supabase PostgreSQL with JWT authentication, and zero-shift skeleton layout architecture.',
     problemStatement: 'Legacy online retail solutions suffered from high bounce rates due to sluggish page transitions, fragile single-payment dependencies, inaccurate shipping tariff estimates for distant Indonesian regencies, and order status sync discrepancies caused by unverified webhooks.',
     solutionDetails: [
       'Architected the web platform using Next.js 15 App Router, React 19, and Tailwind CSS, achieving sub-second Largest Contentful Paint (LCP) benchmarks.',
-      'Constructed a resilient multi-gateway payment architecture integrating Midtrans Snap (Virtual Account, credit card, e-wallet) and Cashify QRIS.',
+      'Constructed a resilient multi-gateway payment architecture integrating Midtrans Snap (Virtual Account, credit card, e-wallet) and RadarPay QRIS.',
       'Engineered server-side SHA-512 cryptographic signature verification for incoming payment webhooks to ensure zero payment fraud and 100% order state accuracy.',
       'Integrated the RajaOngkir Pro logistics API to dynamically resolve provinces, cities, sub-districts, and courier service options with weight-based tariffs.',
       'Built custom skeleton loaders that reserve layout dimensions during initial data fetches, locking Cumulative Layout Shift (CLS) at 0.00.'
@@ -23,7 +23,7 @@ export const projectsData: Project[] = [
     architecturalHighlights: [
       {
         title: 'Multi-Gateway Payment State Machine',
-        description: 'Serverless route handler verifies Midtrans and Cashify webhook signatures, transitioning orders atomically between settlement, pending, and expired states.'
+        description: 'Serverless route handler verifies Midtrans and RadarPay webhook signatures, transitioning orders atomically between settlement, pending, and expired states.'
       },
       {
         title: 'RajaOngkir Pro Cascading Lookup',
@@ -31,7 +31,7 @@ export const projectsData: Project[] = [
       },
       {
         title: 'Strict Server-Runtime Security',
-        description: 'Sensitive credentials (SUPABASE_SERVICE_ROLE_KEY, MIDTRANS_SERVER_KEY, CASHIFY_SECRET_KEY) are strictly isolated to server runtime handlers.'
+        description: 'Sensitive credentials (SUPABASE_SERVICE_ROLE_KEY, MIDTRANS_SERVER_KEY, RADARPAY_SECRET_KEY) are strictly isolated to server runtime handlers.'
       }
     ],
     technicalStack: [
@@ -41,7 +41,7 @@ export const projectsData: Project[] = [
       'Tailwind CSS',
       'Supabase PostgreSQL',
       'Midtrans Snap',
-      'Cashify QRIS',
+      'RadarPay QRIS',
       'RajaOngkir Pro API',
       'Zod'
     ],
@@ -92,10 +92,10 @@ export async function POST(req: NextRequest) {
       badge: '0.00 CLS',
       path: 'web-prawira-tobacco / storefront',
       built:
-        'Next.js 15 storefront with Midtrans Snap and Cashify QRIS checkout, RajaOngkir Pro shipping down to sub-district, and Supabase auth.',
+        'Next.js 15 storefront with Midtrans Snap and RadarPay QRIS checkout, RajaOngkir Pro shipping down to sub-district, and Supabase auth.',
       result:
         'Live at prawiratobacco.com. Layout shift held at 0.00, Lighthouse performance at 98, and every payment webhook checked against its SHA-512 signature.',
-      stack: ['Next.js 15', 'React 19', 'TypeScript', 'Supabase', 'Midtrans Snap', 'Cashify QRIS'],
+      stack: ['Next.js 15', 'React 19', 'TypeScript', 'Supabase', 'Midtrans Snap', 'RadarPay QRIS'],
       terminal: {
         file: 'webhook/midtrans/route.ts',
         tag: 'VERIFIED',
@@ -268,7 +268,7 @@ export async function POST(req: NextRequest) {
     role: 'Backend & API Engineer',
     timeframe: '2025 - Present',
     status: 'Production Architecture',
-    summary: 'A clean, modular backend layer comprising over 15 RESTful Next.js Route Handlers. Coordinates user sessions, order mutations, Midtrans and Cashify payment hooks, and RajaOngkir logistics proxies with server-side credential isolation and rigorous error boundaries.',
+    summary: 'A clean, modular backend layer comprising over 15 RESTful Next.js Route Handlers. Coordinates user sessions, order mutations, Midtrans and RadarPay payment hooks, and RajaOngkir logistics proxies with server-side credential isolation and rigorous error boundaries.',
     problemStatement: 'Building e-commerce backends without structured separation often leads to exposed service role keys, race conditions in order creation, unhandled webhook failures, and tightly coupled database logic.',
     solutionDetails: [
       'Segregated API endpoints into logical domains: /api/auth, /api/orders, /api/payment, /api/rajaongkir, and /api/webhook.',

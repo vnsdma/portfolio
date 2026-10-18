@@ -11,7 +11,7 @@ interface RecruiterBriefModalProps {
 const BRIEF_TEXT = `Candidate: Naufal Faris Fadhil (@vnsdma) - Fullstack Software Engineer
 Specialization: High-Performance Web Applications, Next.js 15 App Router, Dynamic QRIS Gateways, Supabase/PostgreSQL, Multi-Gateway Payments, and Mobile Daemons.
 Key Technical Achievements:
-1. Shipped live commercial e-commerce platform (https://prawiratobacco.com) with Midtrans Snap, Cashify QRIS, and RajaOngkir Pro sub-district shipping.
+1. Shipped live commercial e-commerce platform (https://prawiratobacco.com) with Midtrans Snap, RadarPay QRIS, and RajaOngkir Pro sub-district shipping.
 2. Built continuous non-blocking camera QR POS cashier system (<300ms scan cycle time).
 3. Engineered RadarPay: autonomous dynamic QRIS gateway with Android notification interception, unique nominal matching (<80ms), and HMAC-SHA256 dispatch.
 4. 98+ Lighthouse scores with 0.00 Cumulative Layout Shift (CLS) via budgeted skeleton layouts.
