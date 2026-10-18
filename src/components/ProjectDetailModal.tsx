@@ -4,6 +4,7 @@ import { Project } from '../types';
 import { Modal } from './Modal';
 import { PosScannerSimulator } from './InteractiveSimulators/PosScannerSimulator';
 import { PaymentLogisticsSimulator } from './InteractiveSimulators/PaymentLogisticsSimulator';
+import { QrisRelaySimulator } from './InteractiveSimulators/QrisRelaySimulator';
 
 type Tab = 'overview' | 'architecture' | 'simulator' | 'code';
 
@@ -192,6 +193,7 @@ const ModalBody: React.FC<{ project: Project; onClose: () => void }> = ({ projec
           <>
             {project.simulatorType === 'pos-scanner' && <PosScannerSimulator />}
             {project.simulatorType === 'payment-logistics' && <PaymentLogisticsSimulator />}
+            {project.simulatorType === 'qris-relay' && <QrisRelaySimulator />}
           </>
         )}
 

@@ -320,5 +320,120 @@ export async function POST(req: NextRequest) {
         ],
       },
     }
+  },
+  {
+    id: 'radarpay-qris-gateway',
+    title: 'RadarPay: Dynamic QRIS Gateway & Notification Relay',
+    tagline: 'Autonomous dynamic QRIS payment gateway with Android notification interception, unique nominal matching, and HMAC-SHA256 dispatch.',
+    category: 'Fintech & Distributed Systems',
+    role: 'Lead Systems & Mobile Engineer',
+    timeframe: '2025 - Present',
+    status: 'Production Architecture',
+    githubUrl: 'https://github.com/vnsdma/radarpay',
+    summary: 'An autonomous self-hosted dynamic QRIS payment gateway engineered for zero-fee Indonesian merchant transactions. Transforms static QRIS strings into dynamic EMVCo payloads with CRC-16 checksums, intercepts banking and e-wallet push notifications (GoPay, BCA, ShopeePay, OVO) via a native Android NotificationListenerService, reconciles transactions using atomic unique-nominal matching in PostgreSQL (Drizzle ORM), and relays HMAC-SHA256 verified webhooks and real-time Telegram bot alerts.',
+    problemStatement: 'Indonesian merchants face significant transaction friction: third-party payment gateways impose 0.7% MDR fees with multi-week onboarding delays, while static QRIS necessitates manual proof-of-transfer checks susceptible to fake receipt manipulation. Existing DIY solutions rely on fragile bank web scraping that gets IP-blocked.',
+    solutionDetails: [
+      'Engineered a dynamic EMVCo QRIS generator computing Tag 01 (Dynamic method: 12), Tag 54 (Amount), and 16-bit CCITT-FALSE CRC checksums on the fly.',
+      'Developed a native Android daemon utilizing NotificationListenerService and a local SQLite outbox queue, relaying push notifications with <1s latency even across unstable cellular connections.',
+      'Architected an atomic unique-nominal allocator (+1 to +999 Rp) and reconciliation engine in Fastify and Drizzle ORM, eliminating order collisions and race conditions.',
+      'Implemented cryptographic webhook dispatching with HMAC-SHA256 signatures, replay-prevention timestamps, and exponential retry backoffs.',
+      'Constructed an interactive Telegram Bot with grammY enabling instant dynamic QRIS generation (/qris <amount>), financial settlement alerts, and device health monitoring.',
+      'Built a modern React + Vite merchant dashboard providing real-time transaction telemetry, simulated webhooks, and device token pairing.'
+    ],
+    architecturalHighlights: [
+      {
+        title: 'EMVCo CRC-16 Dynamic Mutation',
+        description: 'Parses merchant static QRIS TLV structures, dynamically updates Point of Initiation Tag 01, injects transaction nominal Tag 54, and calculates 16-bit CCITT-FALSE CRC checksums.'
+      },
+      {
+        title: 'Android Notification Interceptor & SQLite Outbox',
+        description: 'Background Android daemon intercepts push notifications from GoPay, ShopeePay, BCA, and OVO, buffering events in a persistent SQLite outbox queue for guaranteed at-least-once relay.'
+      },
+      {
+        title: 'Atomic Unique-Nominal Reconciliation',
+        description: 'Allocates deterministic unique cents to pending orders, matching incoming payments in PostgreSQL within sub-80ms without database row locking bottlenecks.'
+      },
+      {
+        title: 'Cryptographic HMAC-SHA256 Dispatch',
+        description: 'Signs outgoing merchant webhooks with timestamped HMAC-SHA256 tokens, ensuring complete callback integrity and anti-replay defense.'
+      }
+    ],
+    technicalStack: [
+      'Fastify 5',
+      'TypeScript (Strict)',
+      'Kotlin (Android Native)',
+      'NotificationListenerService',
+      'Drizzle ORM',
+      'PostgreSQL',
+      'EMVCo QRIS & CRC-16',
+      'HMAC-SHA256',
+      'grammY Telegram Bot',
+      'React 18 & Vite',
+      'Tailwind CSS',
+      'Docker & Caddy'
+    ],
+    metrics: [
+      { label: 'Reconciliation Latency', value: '<80ms', detail: 'Instant matching from notification receipt to order state change' },
+      { label: 'Android Forward Latency', value: '<1.2s', detail: 'Real-time push interception across mobile networks' },
+      { label: 'EMVCo Compliance', value: '100% Valid', detail: 'Standard Indonesian Bank Indonesia QRIS specifications' },
+      { label: 'MDR Fees Avoided', value: '0% Fees', detail: 'Eliminates third-party gateway payment deductions' }
+    ],
+    codeSnippet: {
+      filename: 'backend/src/core/qris/generator.ts',
+      language: 'typescript',
+      code: `import { calculateCRC16 } from './crc16'
+import { formatTLV, parseEMVCo } from './emvco'
+
+export async function generateDynamicQRIS(staticQris: string, amount: number) {
+  const parsed = parseEMVCo(staticQris)
+  const tags = new Map(parsed.tags)
+
+  // Mutate Point of Initiation Method: 12 (Dynamic QR)
+  tags.set('01', '12')
+
+  // Set Currency to 360 (IDR) and Transaction Amount (Tag 54)
+  if (!tags.has('53')) tags.set('53', '360')
+  tags.set('54', Math.round(amount).toString())
+
+  // Strip existing Tag 63 (CRC) for recalculation
+  tags.delete('63')
+
+  // Re-encode TLV elements in standard EMVCo hierarchy
+  let payload = ''
+  for (const tag of standardOrder) {
+    if (tags.has(tag)) payload += formatTLV(tag, tags.get(tag)!)
+  }
+
+  // Append Tag 63 placeholder ('6304') and calculate CRC-16/CCITT-FALSE
+  const payloadWithHeader = payload + '6304'
+  const crc = calculateCRC16(payloadWithHeader)
+
+  return \`\${payloadWithHeader}\${crc}\`
+}`,
+      explanation: 'TLV tag mutation transforms any static merchant QR code into a dynamic payment request with precise amount encoding and valid 16-bit CRC checksum.'
+    },
+    simulatorType: 'qris-relay',
+    card: {
+      badge: '<80ms Match',
+      path: 'radarpay / qris-gateway',
+      built:
+        'Dynamic EMVCo QRIS engine with Android push interception, unique nominal reconciliation, and HMAC-SHA256 webhook relay.',
+      result:
+        'Zero-fee payment automation, sub-80ms atomic order matching, and resilient SQLite outbox relay from native Android services.',
+      stack: ['Fastify', 'TypeScript', 'Kotlin', 'PostgreSQL', 'Drizzle ORM', 'EMVCo QRIS', 'HMAC-SHA256'],
+      terminal: {
+        file: 'reconciliation.service.ts',
+        tag: 'RECONCILED',
+        lines: [
+          { kind: 'comment', text: '// Android push notification intercepted' },
+          { kind: 'kv', key: 'source', value: 'GoPay Merchant', keyTone: 'accent' },
+          { kind: 'kv', key: 'nominal', value: 'Rp 50.001 (base: 50.000 + 1)', keyTone: 'dim', valueTone: 'ok' },
+          { kind: 'kv', key: 'matching', value: 'order #INV-4821 matched', keyTone: 'dim', valueTone: 'ok' },
+          { kind: 'kv', key: 'status', value: 'PENDING -> PAID', keyTone: 'hl', valueTone: 'ok' },
+          { kind: 'kv', key: 'webhook', value: 'HMAC-SHA256 dispatched', keyTone: 'accent', valueTone: 'ok' },
+          { kind: 'kv', key: 'telegram', value: 'alert sent (<80ms)', keyTone: 'dim', valueTone: 'hl' },
+        ],
+      },
+    }
   }
 ];

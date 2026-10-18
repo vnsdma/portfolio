@@ -103,6 +103,7 @@ const ProjectCard: React.FC<{ project: Project; onOpen: () => void }> = ({ proje
 
 const FILTERS = [
   { id: 'all', label: 'All case studies' },
+  { id: 'radarpay-qris-gateway', label: 'Dynamic QRIS & Relay' },
   { id: 'prawira-tobacco-web', label: 'Web Platform' },
   { id: 'prawira-tobacco-mobile', label: 'Mobile Client' },
   { id: 'prawira-inventory-pos', label: 'POS & Inventory' },

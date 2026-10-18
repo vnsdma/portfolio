@@ -27,7 +27,7 @@ export interface Project {
     code: string;
     explanation: string;
   };
-  simulatorType?: 'pos-scanner' | 'payment-logistics';
+  simulatorType?: 'pos-scanner' | 'payment-logistics' | 'qris-relay';
   /** Content for the project card on the home page. */
   card: ProjectCard;
 }

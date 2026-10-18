@@ -9,21 +9,23 @@ interface RecruiterBriefModalProps {
 }
 
 const BRIEF_TEXT = `Candidate: Naufal Faris Fadhil (@vnsdma) - Fullstack Software Engineer
-Specialization: High-Performance Web Applications, Next.js 15 App Router, Supabase, Multi-Gateway Payments (Midtrans & Cashify QRIS), and Point-of-Sale Systems.
+Specialization: High-Performance Web Applications, Next.js 15 App Router, Dynamic QRIS Gateways, Supabase/PostgreSQL, Multi-Gateway Payments, and Mobile Daemons.
 Key Technical Achievements:
 1. Shipped live commercial e-commerce platform (https://prawiratobacco.com) with Midtrans Snap, Cashify QRIS, and RajaOngkir Pro sub-district shipping.
 2. Built continuous non-blocking camera QR POS cashier system (<300ms scan cycle time).
-3. 98+ Lighthouse scores with 0.00 Cumulative Layout Shift (CLS) via budgeted skeleton layouts.
-4. Strict TypeScript discipline, server-isolated credential architecture, and SHA-512 webhook signature verification.
+3. Engineered RadarPay: autonomous dynamic QRIS gateway with Android notification interception, unique nominal matching (<80ms), and HMAC-SHA256 dispatch.
+4. 98+ Lighthouse scores with 0.00 Cumulative Layout Shift (CLS) via budgeted skeleton layouts.
+5. Strict TypeScript discipline, server-isolated credential architecture, and cryptographic webhook verification.
 Web E-Commerce: https://github.com/vnsdma/web-prawira-tobacco
 Mobile E-Commerce: https://github.com/vnsdma/prawira-tobacco
+QRIS Gateway: https://github.com/vnsdma/radarpay
 Contact: naufalfaris1903@gmail.com`;
 
 const QUICK_FACTS = [
-  { value: 'Next.js 15', label: 'App Router and React 19' },
+  { value: 'Next.js & Fastify', label: 'Modern stack native' },
+  { value: 'Dynamic QRIS', label: 'EMVCo & Android relay' },
   { value: '0.00 CLS', label: 'Performance budget' },
-  { value: 'Multi-gateway', label: 'Midtrans and Cashify QRIS' },
-  { value: 'SHA-512', label: 'Verified webhooks' },
+  { value: 'HMAC / SHA', label: 'Verified webhooks' },
 ];
 
 export const RecruiterBriefModal: React.FC<RecruiterBriefModalProps> = ({ isOpen, onClose }) => {

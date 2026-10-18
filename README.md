@@ -66,6 +66,11 @@ The portfolio includes two live, in-browser interactive simulators demonstrating
 - **Non-Blocking Camera Stream**: Simulates an active video capture thread using `html5-qrcode` without modal interruptions.
 - **Frame Buffer & Debounce**: Demonstrates a 1,200ms deduplication window preventing accidental double-charging while enabling rapid basket checkout (<300ms per item).
 
+### 3. 📱 Dynamic QRIS EMVCo & Android Notification Relay Simulator
+*Location: [`src/components/InteractiveSimulators/QrisRelaySimulator.tsx`](src/components/InteractiveSimulators/QrisRelaySimulator.tsx)*
+- **EMVCo CRC-16 Calculation**: Simulates dynamic QRIS generation (Tag 01=12, Tag 54, CCITT-FALSE CRC-16) with unique code allocation (+1 Rp).
+- **Push Interception & Atomic Reconciliation**: Simulates Android `NotificationListenerService` capturing push notifications from GoPay, BCA, ShopeePay, and OVO, performing sub-80ms PostgreSQL matching, HMAC-SHA256 webhook dispatch, and Telegram alerts.
+
 ---
 
 ## 🎨 Dual Editorial Design System
@@ -90,13 +95,15 @@ The application features a bespoke dual design system implemented with CSS varia
 ```
 portfolio/
 ├── public/
-│   ├── Naufal_Faris_Fadhil_CV.pdf    # Downloadable resume
+│   ├── Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf # Downloadable resume
+│   ├── _redirects                   # Cloudflare Pages SPA rewrite
 │   └── favicon.svg                  # Brand favicon
 ├── src/
 │   ├── components/
 │   │   ├── InteractiveSimulators/   # Embedded architecture simulators
 │   │   │   ├── PaymentLogisticsSimulator.tsx
-│   │   │   └── PosScannerSimulator.tsx
+│   │   │   ├── PosScannerSimulator.tsx
+│   │   │   └── QrisRelaySimulator.tsx
 │   │   ├── ui/                      # Shared atomic UI primitives
 │   │   │   ├── SectionHeader.tsx
 │   │   │   └── Terminal.tsx
@@ -126,27 +133,32 @@ portfolio/
 ├── package.json                     # Dependencies and scripts
 ├── tailwind.config.js               # Tailwind design system configuration
 ├── tsconfig.json                    # Strict TypeScript compiler options
-└── vite.config.ts                   # Vite bundler configuration & path aliases
+├── vite.config.ts                   # Vite bundler configuration & path aliases
+└── wrangler.toml                    # Cloudflare Pages deployment configuration
 ```
 
 ---
 
 ## 🛠️ Featured Commercial Projects
 
-### 1. [Prawira Tobacco E-Commerce Platform (Web)](https://github.com/vnsdma/web-prawira-tobacco)
+### 1. [RadarPay: Dynamic QRIS Gateway & Notification Relay](https://github.com/vnsdma/radarpay)
+- **Stack**: Fastify 5, TypeScript (Strict), Kotlin (Android Native), NotificationListenerService, Drizzle ORM, PostgreSQL, EMVCo QRIS, HMAC-SHA256, grammY Telegram Bot, React 18, Vite.
+- **Highlights**: Zero-fee payment gateway generating dynamic EMVCo QRIS with CRC-16 checksums, native Android push notification interception (GoPay, BCA, ShopeePay, OVO) with offline SQLite outbox buffering, atomic unique-nominal matching in PostgreSQL (<80ms), and cryptographically signed HMAC-SHA256 webhook dispatch.
+
+### 2. [Prawira Tobacco E-Commerce Platform (Web)](https://github.com/vnsdma/web-prawira-tobacco)
 - **Live URL**: [prawiratobacco.com](https://prawiratobacco.com/)
 - **Stack**: Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Supabase PostgreSQL, Midtrans Snap, Cashify QRIS, RajaOngkir Pro API.
 - **Highlights**: Dual-gateway checkout with virtual accounts & QRIS, sub-district tariff calculation, and 100% SHA-512 webhook signature verification.
 
-### 2. [Prawira Tobacco Mobile E-Commerce](https://github.com/vnsdma/prawira-tobacco)
+### 3. [Prawira Tobacco Mobile E-Commerce](https://github.com/vnsdma/prawira-tobacco)
 - **Stack**: Next.js 15, React 19, TypeScript, Tailwind CSS, Supabase Client, Lucide React.
 - **Highlights**: Mobile-first ergonomics, sticky bottom navigation, touch slide-over cart drawer, and sub-80ms serverless promo voucher engine (`/api/mobile/promo/validate`).
 
-### 3. Prawira Inventory & Admin POS Suite
+### 4. Prawira Inventory & Admin POS Suite
 - **Stack**: Next.js 14, React 18, TypeScript, Supabase SSR, `html5-qrcode`, Recharts, Tailwind CSS.
 - **Highlights**: Continuous camera-driven QR cashier checkout (<300ms cycle time), 75% cashier friction reduction, and real-time net profit margin telemetry.
 
-### 4. Enterprise API Suite & Cryptographic Handlers
+### 5. Enterprise API Suite & Cryptographic Handlers
 - **Stack**: Next.js 15 Route Handlers, Supabase PostgreSQL, JWT, SHA-512 HMAC, TypeScript Strict Mode.
 - **Highlights**: Domain-segregated route handlers (`/api/auth`, `/api/orders`, `/api/payment`, `/api/rajaongkir`, `/api/webhook`), strict server runtime isolation for secrets, and idempotent webhook processing.
 

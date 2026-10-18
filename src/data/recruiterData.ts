@@ -3,13 +3,13 @@ import { RecruiterPillar, SkillCategory } from '../types';
 export const recruiterPillars: RecruiterPillar[] = [
   {
     title: 'Solves Real Commercial Problems, Not Generic Tutorials',
-    pitch: 'I do not build shallow demo clones or basic tutorial apps. My code processes real customer transactions via Midtrans Snap and Cashify QRIS, calculates multi-tier Indonesian logistics down to the sub-district level using RajaOngkir Pro, and powers high-throughput continuous camera QR cashier checkouts.',
+    pitch: 'I do not build shallow demo clones or basic tutorial apps. My code processes real customer transactions via Midtrans Snap and Cashify QRIS, calculates multi-tier Indonesian logistics down to the sub-district level using RajaOngkir Pro, powers high-throughput continuous camera QR cashier checkouts, and runs autonomous dynamic QRIS gateways with Android notification interception.',
     differentiator: 'Production-ready domain problem solving and commercial code craftsmanship.',
-    evidence: 'Prawira Tobacco E-Commerce (web-prawira-tobacco & prawira-tobacco) & Prawira Inventory POS Suite.'
+    evidence: 'RadarPay Dynamic QRIS Gateway, Prawira Tobacco E-Commerce (web-prawira-tobacco & prawira-tobacco) & Prawira Inventory POS Suite.'
   },
   {
     title: 'Modern Stack Native with Architectural Cleanliness',
-    pitch: 'Deeply proficient in contemporary production standards: Next.js 15 App Router, React 19, TypeScript strict mode, Supabase PostgreSQL with Row Level Security, and utility-first Tailwind CSS. I write modular, type-safe code that senior engineers can review and merge with confidence.',
+    pitch: 'Deeply proficient in contemporary production standards: Next.js 15 App Router, React 19, Fastify 5, Drizzle ORM, TypeScript strict mode, Supabase PostgreSQL with Row Level Security, and utility-first Tailwind CSS. I write modular, type-safe code that senior engineers can review and merge with confidence.',
     differentiator: 'Clean mental models and immediate synergy with modern production codebases.',
     evidence: '100% strict TypeScript types, server component optimizations, zero any workarounds.'
   },
@@ -21,9 +21,9 @@ export const recruiterPillars: RecruiterPillar[] = [
   },
   {
     title: 'Security-First Backend Architecture',
-    pitch: 'Understanding that web security is non-negotiable. Sensitive database service keys and payment secrets are strictly kept on server runtimes, while incoming payment callbacks are verified against SHA-512 cryptographic signatures before updating database order states.',
+    pitch: 'Understanding that web security is non-negotiable. Sensitive database service keys and payment secrets are strictly kept on server runtimes, while incoming payment callbacks are verified against SHA-512 and HMAC-SHA256 cryptographic signatures before updating database order states.',
     differentiator: 'Protects business revenue and user data against payment fraud and callback tampering.',
-    evidence: 'Verified HMAC-SHA512 webhook listeners and atomic Supabase transactions.'
+    evidence: 'Verified HMAC-SHA256/SHA-512 webhook listeners and atomic database transactions.'
   }
 ];
 
@@ -34,7 +34,7 @@ export const skillCategories: SkillCategory[] = [
     blurb: 'Server components, strict types, and layouts that reserve space before data arrives.',
     skills: [
       'Next.js 15 (App Router)',
-      'React 19',
+      'React 19 & React 18',
       'TypeScript (Strict)',
       'Tailwind CSS',
       'GSAP (ScrollTrigger & Motion)',
@@ -48,11 +48,11 @@ export const skillCategories: SkillCategory[] = [
     tag: 'Data and API',
     blurb: 'Row-level security, typed route handlers, and state machines for order and payment flow.',
     skills: [
-      'Supabase PostgreSQL',
+      'Fastify 5 & Next.js Routes',
+      'Drizzle ORM & Supabase Postgres',
       'Row Level Security (RLS)',
-      'Next.js Route Handlers',
-      'RESTful API Design',
-      'SHA-512 Signature Verification',
+      'RESTful API Design & Swagger',
+      'HMAC-SHA256 & SHA-512 Signatures',
       'State Machine Modeling',
       'JWT Authentication',
       'Server-Side Data Caching'
@@ -63,11 +63,12 @@ export const skillCategories: SkillCategory[] = [
     tag: 'Commerce',
     blurb: 'Webhook-verified payments, sub-district shipping, and live inventory deductions.',
     skills: [
-      'Midtrans Snap Gateway',
-      'Cashify QRIS Gateway',
-      'Payment Webhook State Handlers',
+      'Dynamic EMVCo QRIS & CRC-16',
+      'Android NotificationListenerService',
+      'SQLite Outbox Pattern Relay',
+      'Midtrans Snap & Cashify QRIS',
+      'grammY Telegram Bot Automation',
       'RajaOngkir Pro Shipping API',
-      'Sub-District Logistics Cascading',
       'html5-qrcode Scanner Integration',
       'Real-Time Inventory Deductions'
     ]
