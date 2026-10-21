@@ -11,14 +11,14 @@ interface RecruiterBriefModalProps {
 const BRIEF_TEXT = `Candidate: Naufal Faris Fadhil (@vnsdma) - Fullstack Software Engineer
 Specialization: High-Performance Web Applications, Next.js 15 App Router, Dynamic QRIS Gateways, Supabase/PostgreSQL, Multi-Gateway Payments, and Mobile Daemons.
 Key Technical Achievements:
-1. Shipped live commercial e-commerce platform (https://prawiratobacco.com) with Midtrans Snap, RadarPay QRIS, and RajaOngkir Pro sub-district shipping.
-2. Built continuous non-blocking camera QR POS cashier system (<300ms scan cycle time).
-3. Engineered RadarPay: autonomous dynamic QRIS gateway with Android notification interception, unique nominal matching (<80ms), and HMAC-SHA256 dispatch.
-4. 98+ Lighthouse scores with 0.00 Cumulative Layout Shift (CLS) via budgeted skeleton layouts.
-5. Strict TypeScript discipline, server-isolated credential architecture, and cryptographic webhook verification.
-Web E-Commerce: https://github.com/vnsdma/web-prawira-tobacco
-Mobile E-Commerce: https://github.com/vnsdma/prawira-tobacco
-QRIS Gateway: https://github.com/vnsdma/radarpay
+1. Engineered RadarPay: autonomous dynamic QRIS gateway with Android notification interception, unique nominal matching (<80ms), and HMAC-SHA256 dispatch.
+2. Built Prawira Tobacco omnichannel commerce & POS suite: Next.js 15 web platform, touch-first mobile client, continuous camera QR cashier (<300ms), and sub-district RajaOngkir Pro shipping.
+3. 98+ Lighthouse scores with 0.00 Cumulative Layout Shift (CLS) via budgeted skeleton layouts.
+4. Strict TypeScript discipline, server-isolated credential architecture, and cryptographic webhook verification.
+RadarPay Gateway: https://github.com/vnsdma/radarpay
+Prawira Commerce Web: https://github.com/vnsdma/web-prawira-tobacco
+Prawira Mobile Client: https://github.com/vnsdma/prawira-tobacco
+Live Store: https://prawiratobacco.com/
 Contact: naufalfaris1903@gmail.com`;
 
 const QUICK_FACTS = [

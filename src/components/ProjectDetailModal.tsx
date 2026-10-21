@@ -20,10 +20,16 @@ const SectionLabel: React.FC<{ children: React.ReactNode; className?: string }> 
 
 const ModalBody: React.FC<{ project: Project; onClose: () => void }> = ({ project, onClose }) => {
   const [tab, setTab] = useState<Tab>('overview');
+  const [activeSnippetIdx, setActiveSnippetIdx] = useState(0);
+  const [prawiraSimulator, setPrawiraSimulator] = useState<'payment' | 'pos'>('payment');
   const tablistRef = React.useRef<HTMLDivElement>(null);
 
   // Each project opens on its overview.
-  useEffect(() => setTab('overview'), [project.id]);
+  useEffect(() => {
+    setTab('overview');
+    setActiveSnippetIdx(0);
+    setPrawiraSimulator('payment');
+  }, [project.id]);
 
   useEffect(() => {
     if (!tablistRef.current) return;
@@ -32,6 +38,8 @@ const ModalBody: React.FC<{ project: Project; onClose: () => void }> = ({ projec
       activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   }, [tab]);
+
+  const allSnippets = project.codeSnippets || (project.codeSnippet ? [project.codeSnippet] : []);
 
   const tabs: { id: Tab; label: string; shortLabel: string; icon: React.ReactNode }[] = [
     {
@@ -54,7 +62,7 @@ const ModalBody: React.FC<{ project: Project; onClose: () => void }> = ({ projec
       shortLabel: 'Simulator',
       icon: <Play className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />,
     });
-  if (project.codeSnippet)
+  if (allSnippets.length > 0)
     tabs.push({
       id: 'code',
       label: 'Code implementation',
@@ -190,28 +198,87 @@ const ModalBody: React.FC<{ project: Project; onClose: () => void }> = ({ projec
         )}
 
         {tab === 'simulator' && (
-          <>
+          <div className="space-y-5">
+            {project.simulatorType === 'prawira-suite' && (
+              <div className="flex flex-wrap items-center gap-2 border-b border-line pb-3">
+                <span className="t-label-sm mr-2 text-mute">Subsystem:</span>
+                <button
+                  type="button"
+                  onClick={() => setPrawiraSimulator('payment')}
+                  className={`chip cursor-pointer text-xs font-semibold transition-colors ${
+                    prawiraSimulator === 'payment'
+                      ? 'border-[rgb(var(--c-accent))] bg-[rgb(var(--c-accent))] text-[rgb(var(--c-on-accent))]'
+                      : 'text-dim hover:text-strong'
+                  }`}
+                >
+                  💳 Multi-Gateway Payment & Logistics
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPrawiraSimulator('pos')}
+                  className={`chip cursor-pointer text-xs font-semibold transition-colors ${
+                    prawiraSimulator === 'pos'
+                      ? 'border-[rgb(var(--c-accent))] bg-[rgb(var(--c-accent))] text-[rgb(var(--c-on-accent))]'
+                      : 'text-dim hover:text-strong'
+                  }`}
+                >
+                  🛒 Continuous Camera POS Scanner
+                </button>
+              </div>
+            )}
             {project.simulatorType === 'pos-scanner' && <PosScannerSimulator />}
             {project.simulatorType === 'payment-logistics' && <PaymentLogisticsSimulator />}
             {project.simulatorType === 'qris-relay' && <QrisRelaySimulator />}
-          </>
+            {project.simulatorType === 'prawira-suite' && (
+              <>
+                {prawiraSimulator === 'payment' && <PaymentLogisticsSimulator />}
+                {prawiraSimulator === 'pos' && <PosScannerSimulator />}
+              </>
+            )}
+          </div>
         )}
 
-        {tab === 'code' && project.codeSnippet && (
-          <div className="space-y-3">
-            <div className="overflow-hidden rounded-theme border border-term-line bg-term-bg">
-              <div className="flex items-center justify-between gap-3 border-b border-term-line px-4 py-3 font-mono text-xs">
-                <span className="truncate text-term-dim">{project.codeSnippet.filename}</span>
-                <span className="text-term-hl">{project.codeSnippet.language}</span>
+        {tab === 'code' && allSnippets.length > 0 && (
+          <div className="space-y-4">
+            {allSnippets.length > 1 && (
+              <div className="flex flex-wrap items-center gap-2 border-b border-line pb-3">
+                <span className="t-label-sm mr-2 text-mute">Subsystem Module:</span>
+                {allSnippets.map((s, idx) => (
+                  <button
+                    key={s.filename}
+                    type="button"
+                    onClick={() => setActiveSnippetIdx(idx)}
+                    className={`chip cursor-pointer text-xs font-semibold transition-colors ${
+                      activeSnippetIdx === idx
+                        ? 'border-[rgb(var(--c-accent))] bg-[rgb(var(--c-accent))] text-[rgb(var(--c-on-accent))]'
+                        : 'text-dim hover:text-strong'
+                    }`}
+                  >
+                    {s.title || s.filename}
+                  </button>
+                ))}
               </div>
-              <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-term-fg">
-                <code>{project.codeSnippet.code}</code>
-              </pre>
-            </div>
-            <p className="t-small inset p-3 text-dim">
-              <span className="font-semibold text-strong">Why it works: </span>
-              {project.codeSnippet.explanation}
-            </p>
+            )}
+            {(() => {
+              const currentSnippet = allSnippets[activeSnippetIdx] || allSnippets[0];
+              return (
+                <div className="space-y-3">
+                  <div className="overflow-hidden rounded-theme border border-term-line bg-term-bg">
+                    <div className="flex items-center justify-between gap-3 border-b border-term-line px-4 py-3 font-mono text-xs">
+                      <span className="truncate text-term-dim">{currentSnippet.filename}</span>
+                      <span className="text-term-hl">{currentSnippet.language}</span>
+                    </div>
+                    <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-term-fg">
+                      <code>{currentSnippet.code}</code>
+                    </pre>
+                  </div>
+                  <p className="t-small inset p-3 text-dim">
+                    <span className="font-semibold text-strong">Why it works: </span>
+                    {currentSnippet.explanation}
+                  </p>
+                </div>
+              );
+            })()}
           </div>
         )}
       </div>

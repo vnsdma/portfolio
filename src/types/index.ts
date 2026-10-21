@@ -1,3 +1,11 @@
+export interface CodeSnippetItem {
+  title?: string;
+  filename: string;
+  language: string;
+  code: string;
+  explanation: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -21,13 +29,9 @@ export interface Project {
     value: string;
     detail: string;
   }[];
-  codeSnippet?: {
-    filename: string;
-    language: string;
-    code: string;
-    explanation: string;
-  };
-  simulatorType?: 'pos-scanner' | 'payment-logistics' | 'qris-relay';
+  codeSnippet?: CodeSnippetItem;
+  codeSnippets?: CodeSnippetItem[];
+  simulatorType?: 'pos-scanner' | 'payment-logistics' | 'qris-relay' | 'prawira-suite';
   /** Content for the project card on the home page. */
   card: ProjectCard;
 }
@@ -41,7 +45,7 @@ export type TerminalLine =
 export interface ProjectCard {
   /** Headline number shown as the badge. */
   badge: string;
-  /** Repo-style label, e.g. "prawira-tobacco / mobile". */
+  /** Repo-style label, e.g. "prawira-tobacco / full-suite". */
   path: string;
   built: string;
   result: string;

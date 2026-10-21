@@ -103,11 +103,8 @@ const ProjectCard: React.FC<{ project: Project; onOpen: () => void }> = ({ proje
 
 const FILTERS = [
   { id: 'all', label: 'All case studies' },
-  { id: 'radarpay-qris-gateway', label: 'Dynamic QRIS & Relay' },
-  { id: 'prawira-tobacco-web', label: 'Web Platform' },
-  { id: 'prawira-tobacco-mobile', label: 'Mobile Client' },
-  { id: 'prawira-inventory-pos', label: 'POS & Inventory' },
-  { id: 'prawira-api-architecture', label: 'API & Systems' },
+  { id: 'radarpay-qris-gateway', label: 'RadarPay QRIS Gateway' },
+  { id: 'prawira-tobacco-suite', label: 'Prawira Tobacco Suite' },
 ] as const;
 
 export const Work: React.FC<WorkProps> = ({ onSelectProject }) => {
@@ -129,7 +126,7 @@ export const Work: React.FC<WorkProps> = ({ onSelectProject }) => {
           eyebrow="Case studies and architecture"
           title="Selected production work"
           titleId="work-title"
-          aside="Fullstack web platforms, mobile-first commerce clients, multi-gateway payment state machines, and continuous camera-driven POS."
+          aside="Autonomous dynamic QRIS gateways, fullstack e-commerce platforms, continuous camera QR POS, and multi-gateway payment state machines."
         />
 
         {/* Category filter tabs */}

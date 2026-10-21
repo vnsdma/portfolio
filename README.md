@@ -54,7 +54,7 @@ Unlike generic developer portfolios filled with tutorial clones, this platform e
 
 ## 🚀 Interactive Engineering Simulators
 
-The portfolio includes two live, in-browser interactive simulators demonstrating underlying system mechanics:
+The portfolio includes three live, in-browser interactive simulators demonstrating underlying system mechanics:
 
 ### 1. 💳 Multi-Gateway Payment & Indonesian Logistics Simulator
 *Location: [`src/components/InteractiveSimulators/PaymentLogisticsSimulator.tsx`](src/components/InteractiveSimulators/PaymentLogisticsSimulator.tsx)*
@@ -112,13 +112,13 @@ portfolio/
 │   │   ├── Footer.tsx               # Footer with metadata and status indicators
 │   │   ├── Hero.tsx                 # Technical hero section & callouts
 │   │   ├── Manifesto.tsx            # Engineering philosophy with GSAP scroll reveal
-│   │   ├── Modal.tsx                # Accessible accessible dialog wrapper
+│   │   ├── Modal.tsx                # Accessible dialog wrapper
 │   │   ├── Navbar.tsx               # Navigation bar with theme toggle & recruiter brief
-│   │   ├── ProjectDetailModal.tsx   # Detailed project drilldown modal
+│   │   ├── ProjectDetailModal.tsx   # Detailed project drilldown modal with simulator/code switchers
 │   │   ├── RecruiterBriefModal.tsx  # Executive candidate brief with copyable summary
 │   │   ├── Stack.tsx                # Deep-dive tech stack breakdown
 │   │   ├── ThemeToggle.tsx          # Dual design system switcher
-│   │   └── Work.tsx                 # Featured commercial project showcase
+│   │   └── Work.tsx                 # Featured commercial project showcase & filter tabs
 │   ├── data/
 │   │   ├── projects.ts              # Detailed project specs, snippets, metrics
 │   │   └── recruiterData.ts         # Engineering pillars & categorized competencies
@@ -145,22 +145,12 @@ portfolio/
 - **Stack**: Fastify 5, TypeScript (Strict), Kotlin (Android Native), NotificationListenerService, Drizzle ORM, PostgreSQL, EMVCo QRIS, HMAC-SHA256, grammY Telegram Bot, React 18, Vite.
 - **Highlights**: Zero-fee payment gateway generating dynamic EMVCo QRIS with CRC-16 checksums, native Android push notification interception (GoPay, BCA, ShopeePay, OVO) with offline SQLite outbox buffering, atomic unique-nominal matching in PostgreSQL (<80ms), and cryptographically signed HMAC-SHA256 webhook dispatch.
 
-### 2. [Prawira Tobacco E-Commerce Platform (Web)](https://github.com/vnsdma/web-prawira-tobacco)
+### 2. [Prawira Tobacco: Omnichannel Commerce & Retail POS Suite](https://github.com/vnsdma/web-prawira-tobacco)
 - **Live URL**: [prawiratobacco.com](https://prawiratobacco.com/)
-- **Stack**: Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Supabase PostgreSQL, Midtrans Snap, RadarPay QRIS, RajaOngkir Pro API.
-- **Highlights**: Dual-gateway checkout with virtual accounts & QRIS, sub-district tariff calculation, and 100% SHA-512 webhook signature verification.
-
-### 3. [Prawira Tobacco Mobile E-Commerce](https://github.com/vnsdma/prawira-tobacco)
-- **Stack**: Next.js 15, React 19, TypeScript, Tailwind CSS, Supabase Client, Lucide React.
-- **Highlights**: Mobile-first ergonomics, sticky bottom navigation, touch slide-over cart drawer, and sub-80ms serverless promo voucher engine (`/api/mobile/promo/validate`).
-
-### 4. Prawira Inventory & Admin POS Suite
-- **Stack**: Next.js 14, React 18, TypeScript, Supabase SSR, `html5-qrcode`, Recharts, Tailwind CSS.
-- **Highlights**: Continuous camera-driven QR cashier checkout (<300ms cycle time), 75% cashier friction reduction, and real-time net profit margin telemetry.
-
-### 5. Enterprise API Suite & Cryptographic Handlers
-- **Stack**: Next.js 15 Route Handlers, Supabase PostgreSQL, JWT, SHA-512 HMAC, TypeScript Strict Mode.
-- **Highlights**: Domain-segregated route handlers (`/api/auth`, `/api/orders`, `/api/payment`, `/api/rajaongkir`, `/api/webhook`), strict server runtime isolation for secrets, and idempotent webhook processing.
+- **Web Repo**: [github.com/vnsdma/web-prawira-tobacco](https://github.com/vnsdma/web-prawira-tobacco)
+- **Mobile Repo**: [github.com/vnsdma/prawira-tobacco](https://github.com/vnsdma/prawira-tobacco)
+- **Stack**: Next.js 15 (App Router), React 19 & React 18, TypeScript, Tailwind CSS, Supabase PostgreSQL (SSR & RLS), Midtrans Snap, RadarPay QRIS, RajaOngkir Pro API, html5-qrcode, Recharts.
+- **Highlights**: Complete retail ecosystem unifying high-performance Next.js 15 web storefront (0.00 CLS, 98 Lighthouse), dual-gateway checkout with virtual accounts & QRIS, sub-district tariff calculation, touch-first mobile client with <80ms voucher validation, continuous camera QR cashier scanner (<300ms cycle), and 100% SHA-512 webhook signature verification.
 
 ---
 
