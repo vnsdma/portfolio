@@ -26,6 +26,7 @@ Unlike generic developer portfolios filled with tutorial clones, this platform e
 - **Developer**: Naufal Faris Fadhil ([@vnsdma](https://github.com/vnsdma))
 - **Email**: `naufalfaris1903@gmail.com`
 - **Location**: Indonesia
+- **Live RadarPay App**: [qris-radarpay.vercel.app](https://qris-radarpay.vercel.app/)
 - **Live Flagship Store**: [prawiratobacco.com](https://prawiratobacco.com/)
 - **CV / Resume**: Available directly in the app or under [`public/Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf`](public/Naufal_Faris_Fadhil_CV_Junior_Fullstack_Developer_EN.pdf)
 
@@ -142,6 +143,8 @@ portfolio/
 ## 🛠️ Featured Commercial Projects
 
 ### 1. [RadarPay: Dynamic QRIS Gateway & Notification Relay](https://github.com/vnsdma/radarpay)
+- **Live URL**: [qris-radarpay.vercel.app](https://qris-radarpay.vercel.app/)
+- **Repository**: [github.com/vnsdma/radarpay](https://github.com/vnsdma/radarpay)
 - **Stack**: Fastify 5, TypeScript (Strict), Kotlin (Android Native), NotificationListenerService, Drizzle ORM, PostgreSQL, EMVCo QRIS, HMAC-SHA256, grammY Telegram Bot, React 18, Vite.
 - **Highlights**: Zero-fee payment gateway generating dynamic EMVCo QRIS with CRC-16 checksums, native Android push notification interception (GoPay, BCA, ShopeePay, OVO) with offline SQLite outbox buffering, atomic unique-nominal matching in PostgreSQL (<80ms), and cryptographically signed HMAC-SHA256 webhook dispatch.
 
@@ -213,7 +216,9 @@ npm run deploy:prod
 
 - **GitHub**: [@vnsdma](https://github.com/vnsdma)
 - **Email**: [naufalfaris1903@gmail.com](mailto:naufalfaris1903@gmail.com)
-- **Live Store**: [prawiratobacco.com](https://prawiratobacco.com/)
+- **Live RadarPay App**: [qris-radarpay.vercel.app](https://qris-radarpay.vercel.app/)
+- **Live Flagship Store**: [prawiratobacco.com](https://prawiratobacco.com/)
+- **RadarPay Gateway Repository**: [github.com/vnsdma/radarpay](https://github.com/vnsdma/radarpay)
 - **Web Platform Repository**: [github.com/vnsdma/web-prawira-tobacco](https://github.com/vnsdma/web-prawira-tobacco)
 - **Mobile Platform Repository**: [github.com/vnsdma/prawira-tobacco](https://github.com/vnsdma/prawira-tobacco)
 

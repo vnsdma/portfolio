@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Bot, Check, CheckCircle2, Copy, Cpu, KeyRound, QrCode, RefreshCw, Send, ShieldCheck, Smartphone, Terminal as TerminalIcon } from 'lucide-react';
+import { ArrowRight, Bot, Check, CheckCircle2, Copy, Cpu, ExternalLink, KeyRound, QrCode, RefreshCw, Send, ShieldCheck, Smartphone, Terminal as TerminalIcon } from 'lucide-react';
 
 interface NotificationSource {
   id: string;
@@ -93,7 +93,16 @@ export const QrisRelaySimulator: React.FC = () => {
             Dynamic QRIS EMVCo & Android Notification Relay Engine
           </h3>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href="https://qris-radarpay.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="t-small inline-flex items-center gap-1 font-semibold text-accent-ink transition-colors hover:underline"
+          >
+            Launch live app
+            <ExternalLink className="h-3 w-3" aria-hidden="true" />
+          </a>
           <span className="badge">CRC-16 EMVCo</span>
           <span className="t-small text-mute">Sub-80ms Atomic Match</span>
         </div>

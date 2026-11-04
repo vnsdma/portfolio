@@ -3,7 +3,9 @@ import { Github, Globe } from 'lucide-react';
 
 const LINKS = [
   { href: 'https://github.com/vnsdma', label: 'GitHub', icon: Github },
+  { href: 'https://qris-radarpay.vercel.app/', label: 'radarpay app', icon: Globe },
   { href: 'https://prawiratobacco.com/', label: 'prawiratobacco.com', icon: Globe },
+  { href: 'https://github.com/vnsdma/radarpay', label: 'RadarPay repo', icon: Github },
   { href: 'https://github.com/vnsdma/web-prawira-tobacco', label: 'Web repo', icon: Github },
   { href: 'https://github.com/vnsdma/prawira-tobacco', label: 'Mobile repo', icon: Github },
 ];

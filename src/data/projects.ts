@@ -10,6 +10,7 @@ export const projectsData: Project[] = [
     timeframe: '2025 - Present',
     status: 'Production Architecture',
     githubUrl: 'https://github.com/vnsdma/radarpay',
+    liveUrl: 'https://qris-radarpay.vercel.app/',
     summary: 'An autonomous self-hosted dynamic QRIS payment gateway engineered for zero-fee Indonesian merchant transactions. Transforms static QRIS strings into dynamic EMVCo payloads with CRC-16 checksums, intercepts banking and e-wallet push notifications (GoPay, BCA, ShopeePay, OVO) via a native Android NotificationListenerService, reconciles transactions using atomic unique-nominal matching in PostgreSQL (Drizzle ORM), and relays HMAC-SHA256 verified webhooks and real-time Telegram bot alerts.',
     problemStatement: 'Indonesian merchants face significant transaction friction: third-party payment gateways impose 0.7% MDR fees with multi-week onboarding delays, while static QRIS necessitates manual proof-of-transfer checks susceptible to fake receipt manipulation. Existing DIY solutions rely on fragile bank web scraping that gets IP-blocked.',
     solutionDetails: [
@@ -99,7 +100,7 @@ export async function generateDynamicQRIS(staticQris: string, amount: number) {
       built:
         'Dynamic EMVCo QRIS engine with Android push interception, unique nominal reconciliation, and HMAC-SHA256 webhook relay.',
       result:
-        'Zero-fee payment automation, sub-80ms atomic order matching, and resilient SQLite outbox relay from native Android services.',
+        'Live at qris-radarpay.vercel.app. Zero-fee payment automation, sub-80ms atomic order matching, and resilient SQLite outbox relay from native Android services.',
       stack: ['Fastify', 'TypeScript', 'Kotlin', 'PostgreSQL', 'Drizzle ORM', 'EMVCo QRIS', 'HMAC-SHA256'],
       terminal: {
         file: 'reconciliation.service.ts',

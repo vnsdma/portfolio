@@ -293,7 +293,7 @@ const ModalBody: React.FC<{ project: Project; onClose: () => void }> = ({ projec
             className="btn btn-outline btn-sm !text-xs sm:!text-sm"
           >
             <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-            Visit live store
+            {project.id === 'radarpay-qris-gateway' ? 'Visit live app' : 'Visit live store'}
           </a>
         )}
         {project.githubUrl && (
