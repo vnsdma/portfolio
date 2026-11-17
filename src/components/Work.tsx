@@ -103,6 +103,7 @@ const ProjectCard: React.FC<{ project: Project; onOpen: () => void }> = ({ proje
 
 const FILTERS = [
   { id: 'all', label: 'All case studies' },
+  { id: 'prawira-ai-intelligence', label: 'Enterprise AI Agent' },
   { id: 'radarpay-qris-gateway', label: 'RadarPay QRIS Gateway' },
   { id: 'prawira-tobacco-suite', label: 'Prawira Tobacco Suite' },
 ] as const;
@@ -126,7 +127,7 @@ export const Work: React.FC<WorkProps> = ({ onSelectProject }) => {
           eyebrow="Case studies and architecture"
           title="Selected production work"
           titleId="work-title"
-          aside="Autonomous dynamic QRIS gateways, fullstack e-commerce platforms, continuous camera QR POS, and multi-gateway payment state machines."
+          aside="Enterprise RAG document intelligence, autonomous dynamic QRIS gateways, fullstack e-commerce platforms, and continuous camera QR POS."
         />
 
         {/* Category filter tabs */}

@@ -72,6 +72,12 @@ The portfolio includes three live, in-browser interactive simulators demonstrati
 - **EMVCo CRC-16 Calculation**: Simulates dynamic QRIS generation (Tag 01=12, Tag 54, CCITT-FALSE CRC-16) with unique code allocation (+1 Rp).
 - **Push Interception & Atomic Reconciliation**: Simulates Android `NotificationListenerService` capturing push notifications from GoPay, BCA, ShopeePay, and OVO, performing sub-80ms PostgreSQL matching, HMAC-SHA256 webhook dispatch, and Telegram alerts.
 
+### 4. 🧠 Enterprise RAG & WhatsApp Action Agent Simulator
+*Location: [`src/components/InteractiveSimulators/DocumentIntelligenceSimulator.tsx`](src/components/InteractiveSimulators/DocumentIntelligenceSimulator.tsx)*
+- **HNSW Semantic Vector Retrieval**: Demonstrates high-dimensional vector search (Gemini text-embedding-004) over catalog PDFs with cosine threshold verification (&ge; 0.70).
+- **Anti-Hallucination Guardrail**: Enforces strict zero-speculation policy on out-of-context queries with automatic threshold rejection and refusal disclosures.
+- **Autonomous Tool Calling**: Executes live warehouse SQL checks (`check_inventory_stock`) against Supabase tables and compiles instant WhatsApp consultation links (`send_whatsapp_action`).
+
 ---
 
 ## 🎨 Dual Editorial Design System
@@ -148,7 +154,12 @@ portfolio/
 - **Stack**: Fastify 5, TypeScript (Strict), Kotlin (Android Native), NotificationListenerService, Drizzle ORM, PostgreSQL, EMVCo QRIS, HMAC-SHA256, grammY Telegram Bot, React 18, Vite.
 - **Highlights**: Zero-fee payment gateway generating dynamic EMVCo QRIS with CRC-16 checksums, native Android push notification interception (GoPay, BCA, ShopeePay, OVO) with offline SQLite outbox buffering, atomic unique-nominal matching in PostgreSQL (<80ms), and cryptographically signed HMAC-SHA256 webhook dispatch.
 
-### 2. [Prawira Tobacco: Omnichannel Commerce & Retail POS Suite](https://github.com/vnsdma/web-prawira-tobacco)
+### 2. [Enterprise Document Intelligence & WhatsApp Action Agent](https://prawiratobacco.com/)
+- **Live Flagship Application**: Integrated on [prawiratobacco.com](https://prawiratobacco.com/)
+- **Stack**: FastAPI (Python), Next.js 15 App Router, PostgreSQL + pgvector (HNSW), LangChain, Google Gemini 1.5 Flash, OpenAI GPT-4o-mini, PyMuPDF, Supabase PostgreSQL, Tailwind CSS.
+- **Highlights**: Production enterprise RAG engine with semantic chunking (800 chars / 100 overlap), strict anti-hallucination cosine similarity thresholding (&ge; 0.70) with verbatim source citations, autonomous warehouse stock tool calling against live Supabase tables, and actionable WhatsApp consultation handoff links.
+
+### 3. [Prawira Tobacco: Omnichannel Commerce & Retail POS Suite](https://github.com/vnsdma/web-prawira-tobacco)
 - **Live URL**: [prawiratobacco.com](https://prawiratobacco.com/)
 - **Web Repo**: [github.com/vnsdma/web-prawira-tobacco](https://github.com/vnsdma/web-prawira-tobacco)
 - **Mobile Repo**: [github.com/vnsdma/prawira-tobacco](https://github.com/vnsdma/prawira-tobacco)

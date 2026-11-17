@@ -31,7 +31,7 @@ export interface Project {
   }[];
   codeSnippet?: CodeSnippetItem;
   codeSnippets?: CodeSnippetItem[];
-  simulatorType?: 'pos-scanner' | 'payment-logistics' | 'qris-relay' | 'prawira-suite';
+  simulatorType?: 'pos-scanner' | 'payment-logistics' | 'qris-relay' | 'prawira-suite' | 'document-intelligence';
   /** Content for the project card on the home page. */
   card: ProjectCard;
 }

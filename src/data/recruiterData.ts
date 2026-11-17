@@ -5,7 +5,7 @@ export const recruiterPillars: RecruiterPillar[] = [
     title: 'Solves Real Commercial Problems, Not Generic Tutorials',
     pitch: 'I do not build shallow demo clones or basic tutorial apps. My code processes real customer transactions via Midtrans Snap and RadarPay QRIS, calculates multi-tier Indonesian logistics down to the sub-district level using RajaOngkir Pro, powers high-throughput continuous camera QR cashier checkouts, and runs autonomous dynamic QRIS gateways with Android notification interception.',
     differentiator: 'Production-ready domain problem solving and commercial code craftsmanship.',
-    evidence: 'RadarPay Dynamic QRIS Gateway & Prawira Tobacco Omnichannel Commerce Suite.'
+    evidence: 'RadarPay Dynamic QRIS Gateway, Enterprise Document Intelligence Agent & Prawira Tobacco Omnichannel Commerce Suite.'
   },
   {
     title: 'Modern Stack Native with Architectural Cleanliness',
@@ -28,6 +28,21 @@ export const recruiterPillars: RecruiterPillar[] = [
 ];
 
 export const skillCategories: SkillCategory[] = [
+  {
+    category: 'Applied AI & Retrieval (RAG)',
+    tag: 'Intelligence',
+    blurb: 'Semantic search, high-dimensional vector embeddings, and autonomous tool calling.',
+    skills: [
+      'FastAPI (Python)',
+      'PostgreSQL & pgvector (HNSW)',
+      'LangChain & Tool Calling',
+      'Google Gemini & OpenAI APIs',
+      'Anti-Hallucination Guardrails',
+      'Semantic Recursive Chunking',
+      'PyMuPDF / Document Parsing',
+      'WhatsApp Automation & Deep Links'
+    ]
+  },
   {
     category: 'Frontend Engineering',
     tag: 'Presentation',
