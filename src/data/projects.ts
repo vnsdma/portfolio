@@ -102,6 +102,11 @@ export async function generateDynamicQRIS(staticQris: string, amount: number) {
       result:
         'Live at qris-radarpay.vercel.app. Zero-fee payment automation, sub-80ms atomic order matching, and resilient SQLite outbox relay from native Android services.',
       stack: ['Fastify', 'TypeScript', 'Kotlin', 'PostgreSQL', 'Drizzle ORM', 'EMVCo QRIS', 'HMAC-SHA256'],
+      image: {
+        src: '/radarpay-preview.png',
+        alt: 'RadarPay Dynamic QRIS Gateway & BMO Simulation Dashboard',
+        urlLabel: 'qris-radarpay.vercel.app',
+      },
       terminal: {
         file: 'reconciliation.service.ts',
         tag: 'RECONCILED',
@@ -249,6 +254,11 @@ export async function generateDynamicQRIS(staticQris: string, amount: number) {
       result:
         'Applied to Prawira Tobacco retail operations. 100% grounded answers with source citations, <45ms vector similarity matching, and sub-100ms autonomous tool calls.',
       stack: ['FastAPI', 'Next.js 15', 'PostgreSQL pgvector', 'LangChain', 'Gemini & GPT-4o', 'Tool Calling'],
+      image: {
+        src: '/prawira-ai-preview.png',
+        alt: 'Prawira Tobacco Atelier AI Agent & Document Intelligence Dashboard',
+        urlLabel: 'prawiratobacco.com / atelier-agent',
+      },
       terminal: {
         file: 'agent_orchestrator.py',
         tag: 'GROUNDED',
@@ -402,6 +412,11 @@ export async function POST(req: NextRequest) {
       result:
         'Live at prawiratobacco.com. 0.00 CLS, 98 Lighthouse score, 75% cashier friction reduction, and 100% SHA-512 verified webhook security.',
       stack: ['Next.js 15', 'React 19', 'TypeScript', 'Supabase Postgres', 'Midtrans & RadarPay', 'RajaOngkir Pro', 'html5-qrcode', 'Recharts'],
+      image: {
+        src: '/prawira-suite-preview.png',
+        alt: 'Prawira Tobacco Omnichannel Storefront & Live AI Kurator',
+        urlLabel: 'prawiratobacco.com',
+      },
       terminal: {
         file: 'prawira-ecosystem / core.ts',
         tag: 'PRODUCTION',

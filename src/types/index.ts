@@ -51,7 +51,12 @@ export interface ProjectCard {
   result: string;
   /** Short stack names for the chips (the modal keeps the full list). */
   stack: string[];
-  terminal: {
+  image?: {
+    src: string;
+    alt: string;
+    urlLabel?: string;
+  };
+  terminal?: {
     file: string;
     tag: string;
     lines: TerminalLine[];

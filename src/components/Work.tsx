@@ -85,7 +85,53 @@ const ProjectCard: React.FC<{ project: Project; onOpen: () => void }> = ({ proje
 
         {/* Inspection panel */}
         <div className="flex min-w-0 flex-col gap-4 lg:col-span-5">
-          <Terminal file={card.terminal.file} tag={card.terminal.tag} lines={card.terminal.lines} />
+          {card.image ? (
+            <div
+              onClick={onOpen}
+              className="group relative cursor-pointer overflow-hidden rounded-theme border border-line bg-card shadow-sm transition-all hover:border-[rgb(var(--c-accent))] hover:shadow-md"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onOpen();
+                }
+              }}
+              aria-label={`Open case study: ${project.title}`}
+            >
+              {/* Browser window chrome header */}
+              <div className="flex items-center justify-between border-b border-line bg-inset px-3.5 py-2 text-xs">
+                <div className="flex items-center gap-1.5" aria-hidden="true">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+                </div>
+                <div className="flex max-w-[210px] items-center gap-1.5 truncate rounded bg-card/80 px-2 py-0.5 font-mono text-[11px] text-mute border border-line/60">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                  <span className="truncate">{card.image.urlLabel || card.path}</span>
+                </div>
+                <span className="badge text-[10px] py-0 px-1.5">PREVIEW</span>
+              </div>
+
+              {/* High-res screenshot */}
+              <div className="relative aspect-[16/10] overflow-hidden bg-inset">
+                <img
+                  src={card.image.src}
+                  alt={card.image.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end justify-center pb-3">
+                  <span className="rounded-full bg-black/85 backdrop-blur-sm px-3.5 py-1 font-mono text-[11px] font-medium text-white shadow-sm flex items-center gap-1.5 border border-white/10">
+                    Open Case Study
+                    <ArrowUpRight className="h-3 w-3" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          ) : card.terminal ? (
+            <Terminal file={card.terminal.file} tag={card.terminal.tag} lines={card.terminal.lines} />
+          ) : null}
 
           <dl className="inset divide-y divide-line overflow-hidden bg-card">
             {project.metrics.map((m) => (
