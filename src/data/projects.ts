@@ -130,7 +130,7 @@ export async function generateDynamicQRIS(staticQris: string, amount: number) {
     role: 'AI Systems & Fullstack Engineer',
     timeframe: '2026 - Present',
     status: 'Production Architecture',
-    liveUrl: 'https://prawiratobacco.com/',
+    liveUrl: 'https://prawira-agent-ai.vercel.app/',
     summary: 'A production-grade enterprise RAG and autonomous action agent engineered for Prawira Tobacco. Combines high-dimensional semantic search over physical SOPs and product catalogs using PostgreSQL pgvector (HNSW cosine similarity), strict anti-hallucination confidence cutoff (>=0.70) with verbatim source citations, and autonomous tool calling that verifies live warehouse inventory in Supabase and formats actionable consultation handoffs directly into WhatsApp.',
     problemStatement: 'Retail and customer support staff at Prawira Tobacco faced significant operational drag: answering customer inquiries on tobacco moisture standards (65%-70% RH at 20-25°C), blending ratios, and return policies required manual lookup across multi-page PDF catalogs. Standard chatbots were passive and disconnected from real store operations, unable to verify physical warehouse stock levels or autonomously dispatch actionable order summaries to WhatsApp.',
     solutionDetails: [
@@ -252,12 +252,12 @@ export async function generateDynamicQRIS(staticQris: string, amount: number) {
       built:
         'Enterprise RAG engine on Next.js 15 & FastAPI with pgvector, anti-hallucination semantic search, warehouse stock verification, and autonomous WhatsApp concierge dispatch.',
       result:
-        'Applied to Prawira Tobacco retail operations. 100% grounded answers with source citations, <45ms vector similarity matching, and sub-100ms autonomous tool calls.',
+        'Live at prawira-agent-ai.vercel.app. 100% grounded answers with source citations, <45ms vector similarity matching, and sub-100ms autonomous tool calls.',
       stack: ['FastAPI', 'Next.js 15', 'PostgreSQL pgvector', 'LangChain', 'Gemini & GPT-4o', 'Tool Calling'],
       image: {
         src: '/prawira-ai-preview.png',
         alt: 'Prawira Tobacco Atelier AI Agent & Document Intelligence Dashboard',
-        urlLabel: 'prawiratobacco.com / atelier-agent',
+        urlLabel: 'prawira-agent-ai.vercel.app',
       },
       terminal: {
         file: 'agent_orchestrator.py',
